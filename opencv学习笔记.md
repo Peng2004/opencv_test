@@ -94,4 +94,24 @@ if (!vid.isOpened())
 `imwrite(const String& filename,InputArray img)`
 
 视频保存为`VideoWriter`函数，见《》P45，具体不详讲
+### 三、图像基本操作
 
+#### 3.1颜色模型转换：cvtColor   <u>P56</u>
+
+`cvtColor(InputArray src,OutputArray dst,int code,int dstCn=0)`
+
+code:具体参数见《》P57
+
+eg.
+
+~~~c++
+cvtColor(img, grey, COLOR_BGR2GRAY);
+~~~
+
+#### 3.2图像二值化：threshold   <u>P71</u>
+
+`threshold(InputArray src,OutputArray dst,double thresh,double maxval,int type)`
+
+type:具体参数见《》P71
+
+**要尤其注意选择设置合适的阈值，如若对图像不了解，设置的阈值不合适，就会对处理后的效果造成严重的影响**
