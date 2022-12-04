@@ -112,4 +112,20 @@ cvtColor(img, grey, COLOR_BGR2GRAY);
 
 type:具体参数见《》P71
 
-**要尤其注意选择设置合适的阈值，如若对图像不了解，设置的阈值不合适，就会对处理后的效果造成严重的影响**
+**要尤其注意选择设置合适的阈值，如若对图像不了解，设置的阈值不合适，就会对处理后的效果造成严重的影响例如`TermCriteria(TermCriteria::EPS|TermCriteria::COUNT,10,1)`**
+
+#### 3.3图像透视变换：warpPerspective   <u>P88</u>
+
+`warpPerspective(InputArray src,OutputArray dst,InputArray M,Size dsize,int flags=INTER_LINEAR,int borderMode = BORDER_CONSTANT,const Scalar & borderValue = Scalar())`
+
+**提供了getPerspectiveTransform这个函数对4个对应点求取变换尺寸**
+
+eg.
+
+~~~c++
+Mat rotation;
+rotation = getPerspectiveTransform(start_point, final_point);
+warpPerspective(img, final_img, rotation, Point(w, h));
+~~~
+
+
